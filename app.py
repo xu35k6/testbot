@@ -54,7 +54,7 @@ def callback():
 def handle_message(event):
     message = text=event.message.text
     if re.match('告訴我秘密',message):
-        import library_search_final
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('才不告訴你哩！'))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #主程式

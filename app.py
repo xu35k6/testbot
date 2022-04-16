@@ -11,6 +11,7 @@ Line Bot聊天機器人
 """
 #載入LineBot所需要的套件
 from flask import Flask, request, abort
+import win32api
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -53,7 +54,7 @@ def callback():
 def handle_message(event):
     message = text=event.message.text
     if re.match('告訴我秘密',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('才不告訴你哩！'))
+        import library_search_final
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #主程式
